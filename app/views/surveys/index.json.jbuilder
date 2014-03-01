@@ -1,0 +1,4 @@
+json.array!(@surveys) do |survey|
+  json.extract! survey, :completing_name, :completing_title, :completing_email, :contact_name, :contact_title, :contact_email, :num_servers, :type_servers, :num_locations, :colocated, :dedicated, :state_owned, :state_owned_sqft, :leased, :leased_sqft, :access_control, :ups, :envir_ctrl, :generator, :fire, :data_server, :data_san, :total_capacity, :used_capacity, :backup, :local_backup, :central_backup, :freq_backup, :freq_backup_other, :who_manages, :who_manages_other, :hard_maint, :hard_maint_amt, :soft_maint, :soft_maint_amt, :contractor_support, :contractor_support_amt
+  json.url survey_url(survey, format: :json)
+end

@@ -1,0 +1,47 @@
+<%= simple_form_for(@survey) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :completing_name %>
+    <%= f.input :completing_title %>
+    <%= f.input :completing_email %>
+    <%= f.input :contact_name %>
+    <%= f.input :contact_title %>
+    <%= f.input :contact_email %>
+    <%= f.input :num_servers %>
+    <%= f.input :type_servers %>
+    <%= f.input :num_locations %>
+    <%= f.input :colocated %>
+    <%= f.input :dedicated %>
+    <%= f.input :state_owned %>
+    <%= f.input :state_owned_sqft %>
+    <%= f.input :leased %>
+    <%= f.input :leased_sqft %>
+    <%= f.input :access_control %>
+    <%= f.input :ups %>
+    <%= f.input :envir_ctrl %>
+    <%= f.input :generator %>
+    <%= f.input :fire %>
+    <%= f.input :data_server %>
+    <%= f.input :data_san %>
+    <%= f.input :total_capacity %>
+    <%= f.input :used_capacity %>
+    <%= f.input :backup %>
+    <%= f.input :local_backup %>
+    <%= f.input :central_backup %>
+    <%= f.input :freq_backup %>
+    <%= f.input :freq_backup_other %>
+    <%= f.input :who_manages %>
+    <%= f.input :who_manages_other %>
+    <%= f.input :hard_maint %>
+    <%= f.input :hard_maint_amt %>
+    <%= f.input :soft_maint %>
+    <%= f.input :soft_maint_amt %>
+    <%= f.input :contractor_support %>
+    <%= f.input :contractor_support_amt %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

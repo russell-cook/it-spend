@@ -1,0 +1,99 @@
+<h1>Listing surveys</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Completing name</th>
+      <th>Completing title</th>
+      <th>Completing email</th>
+      <th>Contact name</th>
+      <th>Contact title</th>
+      <th>Contact email</th>
+      <th>Num servers</th>
+      <th>Type servers</th>
+      <th>Num locations</th>
+      <th>Colocated</th>
+      <th>Dedicated</th>
+      <th>State owned</th>
+      <th>State owned sqft</th>
+      <th>Leased</th>
+      <th>Leased sqft</th>
+      <th>Access control</th>
+      <th>Ups</th>
+      <th>Envir ctrl</th>
+      <th>Generator</th>
+      <th>Fire</th>
+      <th>Data server</th>
+      <th>Data san</th>
+      <th>Total capacity</th>
+      <th>Used capacity</th>
+      <th>Backup</th>
+      <th>Local backup</th>
+      <th>Central backup</th>
+      <th>Freq backup</th>
+      <th>Freq backup other</th>
+      <th>Who manages</th>
+      <th>Who manages other</th>
+      <th>Hard maint</th>
+      <th>Hard maint amt</th>
+      <th>Soft maint</th>
+      <th>Soft maint amt</th>
+      <th>Contractor support</th>
+      <th>Contractor support amt</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @surveys.each do |survey| %>
+      <tr>
+        <td><%= survey.completing_name %></td>
+        <td><%= survey.completing_title %></td>
+        <td><%= survey.completing_email %></td>
+        <td><%= survey.contact_name %></td>
+        <td><%= survey.contact_title %></td>
+        <td><%= survey.contact_email %></td>
+        <td><%= survey.num_servers %></td>
+        <td><%= survey.type_servers %></td>
+        <td><%= survey.num_locations %></td>
+        <td><%= survey.colocated %></td>
+        <td><%= survey.dedicated %></td>
+        <td><%= survey.state_owned %></td>
+        <td><%= survey.state_owned_sqft %></td>
+        <td><%= survey.leased %></td>
+        <td><%= survey.leased_sqft %></td>
+        <td><%= survey.access_control %></td>
+        <td><%= survey.ups %></td>
+        <td><%= survey.envir_ctrl %></td>
+        <td><%= survey.generator %></td>
+        <td><%= survey.fire %></td>
+        <td><%= survey.data_server %></td>
+        <td><%= survey.data_san %></td>
+        <td><%= survey.total_capacity %></td>
+        <td><%= survey.used_capacity %></td>
+        <td><%= survey.backup %></td>
+        <td><%= survey.local_backup %></td>
+        <td><%= survey.central_backup %></td>
+        <td><%= survey.freq_backup %></td>
+        <td><%= survey.freq_backup_other %></td>
+        <td><%= survey.who_manages %></td>
+        <td><%= survey.who_manages_other %></td>
+        <td><%= survey.hard_maint %></td>
+        <td><%= survey.hard_maint_amt %></td>
+        <td><%= survey.soft_maint %></td>
+        <td><%= survey.soft_maint_amt %></td>
+        <td><%= survey.contractor_support %></td>
+        <td><%= survey.contractor_support_amt %></td>
+        <td><%= link_to 'Show', survey %></td>
+        <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
+        <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Survey', new_survey_path %>
