@@ -1,30 +1,38 @@
 class SurveysController < ApplicationController
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+
+  rescue_from ActiveRecord::RecordNotFound do
+    flash[:notice] = 'The Survey you are trying to view does not exist.'
+    redirect_to :controller => "surveys", :action => "index"
+  end
 
   # GET /surveys
   # GET /surveys.json
   def index
-    @surveys = Survey.all
+    @surveys = current_user.surveys.all
   end
 
   # GET /surveys/1
   # GET /surveys/1.json
   def show
+    authorize_survey
   end
 
   # GET /surveys/new
   def new
-    @survey = Survey.new
+    @survey = current_user.surveys.new
   end
 
   # GET /surveys/1/edit
   def edit
+    authorize_survey
   end
 
   # POST /surveys
   # POST /surveys.json
   def create
-    @survey = Survey.new(survey_params)
+    @survey = current_user.surveys.build(survey_params)
 
     respond_to do |format|
       if @survey.save
@@ -65,6 +73,14 @@ class SurveysController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_survey
       @survey = Survey.find(params[:id])
+    end
+
+    def authorize_survey
+      s = Survey.find(params[:id])
+      if s.user_id != current_user.id
+        flash[:notice] = 'You are not authorized to view the requested Survey.'
+        redirect_to surveys_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

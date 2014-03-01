@@ -1,4 +1,4 @@
-<%= render "users/shared/container_top" %>
+<%= render "layouts/devise_container_top" %>
 <h3>Create account (Sign up)</h3>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
@@ -17,4 +17,4 @@
 <% end %>
 
 <%= render "users/shared/links" %>
-<%= render "users/shared/container_bottom" %>
+<%= render "layouts/devise_container_bottom" %>
