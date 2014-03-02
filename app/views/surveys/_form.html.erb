@@ -1,35 +1,134 @@
 <%= simple_form_for(@survey) do |f| %>
   <%= f.error_notification %>
 
+  <div class="form-actions">
+    <%= f.button :submit, "Save" %>
+  </div>
+
   <div class="form-inputs">
-    <%= f.input :completing_name %>
-    <%= f.input :completing_title %>
-    <%= f.input :completing_email %>
-    <%= f.input :contact_name %>
-    <%= f.input :contact_title %>
-    <%= f.input :contact_email %>
-    <%= f.input :num_servers %>
-    <%= f.input :type_servers %>
-    <%= f.input :num_locations %>
-    <%= f.input :colocated %>
-    <%= f.input :dedicated %>
-    <%= f.input :state_owned %>
-    <%= f.input :state_owned_sqft %>
-    <%= f.input :leased %>
-    <%= f.input :leased_sqft %>
-    <%= f.input :access_control %>
-    <%= f.input :ups %>
-    <%= f.input :envir_ctrl %>
-    <%= f.input :generator %>
-    <%= f.input :fire %>
-    <%= f.input :data_server %>
-    <%= f.input :data_san %>
-    <%= f.input :total_capacity %>
-    <%= f.input :used_capacity %>
+    <fieldset>
+        <legend>Personnel Information</legend>
+        <div class="row">
+            <div class="large-4 columns">
+                <label>Name of person completing survey:</label>
+                <%= f.text_field :completing_name %>
+            </div>
+            <div class="large-4 columns">
+                <label>Title of person completing survey:</label>
+                <%= f.text_field :completing_title %>
+            </div>
+            <div class="large-4 columns">
+                <label>Email of person completing survey:</label>
+                <%= f.text_field :completing_email %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-4 columns">
+                <label>Name of person to contact with questions:</label>
+                <%= f.text_field :contact_name %>
+            </div>
+            <div class="large-4 columns">
+                <label>Title of person to contact with questions:</label>
+                <%= f.text_field :contact_title %>
+            </div>
+            <div class="large-4 columns">
+                <label>Email of person to contact with questions:</label>
+                <%= f.text_field :contact_email %>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Server Information - Hardware</legend>
+        <%= f.input :num_servers %>
+        <%= f.input :type_servers %>
+    </fieldset>
+
+    <fieldset>
+        <legend>Server Information - Facilities</legend>
+        <%= f.input :num_locations %>
+        <hr>
+        <div class="row">
+            <div class="large-10 columns">
+                <label>Are your agency’s servers located in the same workspace as agency staff/employees?</label>
+            </div>
+            <div class="large-1 columns">
+                <label>Yes</label>
+                <%= f.radio_button :colocated, "true" %>
+            </div>
+            <div class="large-1 columns">
+                <label>No</label>
+                <%= f.radio_button :colocated, "false" %>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="large-10 columns">
+                <label>Are your agency’s servers located in a dedicated server facility?</label>
+            </div>
+            <div class="large-1 columns">
+                <label>Yes</label>
+                <%= f.radio_button :dedicated, "true" %>
+            </div>
+            <div class="large-1 columns">
+                <label>No</label>
+                <%= f.radio_button :dedicated, "false" %>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="large-12 columns">
+                <label><p>Are your agency’s server(s) located in state owned or leased space? Please check all that apply. Please also and indicate the estimeated square feet dedicated to your agency's servers in each location:</p></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-2 columns">
+                <%= f.input :state_owned %>
+            </div>
+            <div class="large-1 columns">
+                <label for="state-owned-sqft" class="right inline">Sq. ft.</label>
+            </div>
+            <div class="large-2 columns">
+                <%= f.number_field :state_owned_sqft, id: 'state-owned-sqft' %>
+            </div>
+            <div class="large-7 columns">
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-2 columns">
+                <%= f.input :leased %>
+            </div>
+            <div class="large-1 columns">
+                <label for="leased-sqft" class="right inline">Sq. ft.</label>
+            </div>
+            <div class="large-2 columns">
+                <%= f.number_field :leased_sqft, id: 'leased-sqft' %>
+            </div>
+            <div class="large-7 columns">
+            </div>
+        </div>
+        <hr>
+        <%= f.input :access_control %>
+        <%= f.input :ups %>
+        <%= f.input :envir_ctrl %>
+        <%= f.input :generator %>
+        <%= f.input :fire %>
+        <%= f.input :data_server %>
+        <%= f.input :data_san %>
+        <%= f.input :total_capacity %>
+        <%= f.input :used_capacity %>
+    </fieldset>
     <%= f.input :backup %>
     <%= f.input :local_backup %>
     <%= f.input :central_backup %>
-    <%= f.input :freq_backup %>
+    <%= f.label :freq_backup_daily, "Daily" %>
+    <%= f.radio_button :freq_backup, "daily" %>
+    <%= f.label(:freq_backup_daily, "Weekly") %>
+    <%= f.radio_button(:freq_backup, "weekly") %>
+    <%= f.label(:freq_backup_daily, "Monthly") %>
+    <%= f.radio_button(:freq_backup, "monthly") %>
+    <%= f.label(:freq_backup_daily, "Other") %>
+    <%= f.radio_button(:freq_backup, "other") %>
     <%= f.input :freq_backup_other %>
     <%= f.input :who_manages %>
     <%= f.input :who_manages_other %>
@@ -42,6 +141,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Save" %>
   </div>
 <% end %>
