@@ -4,43 +4,10 @@
 <table>
   <thead>
     <tr>
-      <th>Completing name</th>
-      <th>Completing title</th>
-      <th>Completing email</th>
-      <th>Contact name</th>
-      <th>Contact title</th>
-      <th>Contact email</th>
-      <th>Num servers</th>
-      <th>Type servers</th>
-      <th>Num locations</th>
-      <th>Colocated</th>
-      <th>Dedicated</th>
-      <th>State owned</th>
-      <th>State owned sqft</th>
-      <th>Leased</th>
-      <th>Leased sqft</th>
-      <th>Access control</th>
-      <th>Ups</th>
-      <th>Envir ctrl</th>
-      <th>Generator</th>
-      <th>Fire</th>
-      <th>Data server</th>
-      <th>Data san</th>
-      <th>Total capacity</th>
-      <th>Used capacity</th>
-      <th>Backup</th>
-      <th>Local backup</th>
-      <th>Central backup</th>
-      <th>Freq backup</th>
-      <th>Freq backup other</th>
-      <th>Who manages</th>
-      <th>Who manages other</th>
-      <th>Hard maint</th>
-      <th>Hard maint amt</th>
-      <th>Soft maint</th>
-      <th>Soft maint amt</th>
-      <th>Contractor support</th>
-      <th>Contractor support amt</th>
+      <th>Dept Code</th>
+      <th>Div Code</th>
+      <th>Name of Person Completing Survey</th>
+      <th>Name of Person to Contact</th>
       <th></th>
       <th></th>
       <th></th>
@@ -50,11 +17,11 @@
   <tbody>
     <% @surveys.each do |survey| %>
       <tr>
+        <td></td>
+        <td></td>
         <td><%= survey.completing_name %></td>
-        <td><%= survey.completing_title %></td>
-        <td><%= survey.completing_email %></td>
         <td><%= survey.contact_name %></td>
-        <td><%= survey.contact_title %></td>
+<!--         <td><%= survey.contact_title %></td>
         <td><%= survey.contact_email %></td>
         <td><%= survey.num_servers %></td>
         <td><%= survey.type_servers %></td>
@@ -87,9 +54,9 @@
         <td><%= survey.soft_maint_amt %></td>
         <td><%= survey.contractor_support %></td>
         <td><%= survey.contractor_support_amt %></td>
-        <td><%= link_to 'Show', survey %></td>
+ -->        <td><%= link_to 'View', survey %></td>
         <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
-        <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -40,13 +40,37 @@
 
     <fieldset>
         <legend>Server Information - Hardware</legend>
-        <%= f.input :num_servers %>
-        <%= f.input :type_servers %>
+        <div class="row">
+            <div class="large-10 columns">
+                <label>How many servers does your agency have?</label>
+            </div>
+            <div class="large-2 columns">
+                <%= f.number_field :num_servers %>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="large-12 columns">
+                <label>Please indicate the type(s) of servers your agency has (e.g., Poweredge T420, IBM AIX, etc.).</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+        <%= f.text_area :type_servers %>
+            </div>
+        </div>
     </fieldset>
 
     <fieldset>
         <legend>Server Information - Facilities</legend>
-        <%= f.input :num_locations %>
+        <div class="row">
+            <div class="large-10 columns">
+                <label>In how many locations does your agency have servers?</label>
+            </div>
+            <div class="large-2 columns">
+                <%= f.number_field :num_locations %>
+            </div>
+        </div>
         <hr>
         <div class="row">
             <div class="large-10 columns">
@@ -78,7 +102,7 @@
         <hr>
         <div class="row">
             <div class="large-12 columns">
-                <label><p>Are your agency’s server(s) located in state owned or leased space? Please check all that apply. Please also and indicate the estimeated square feet dedicated to your agency's servers in each location:</p></label>
+                <label><p>Are your agency’s server(s) located in state owned or leased space? Please check all that apply. Please also and indicate the estimated square feet dedicated to your agency's servers in each location:</p></label>
             </div>
         </div>
         <div class="row">
@@ -108,11 +132,76 @@
             </div>
         </div>
         <hr>
-        <%= f.input :access_control %>
-        <%= f.input :ups %>
-        <%= f.input :envir_ctrl %>
-        <%= f.input :generator %>
-        <%= f.input :fire %>
+        <div class="row">
+            <div class="large-10 columns">
+                <label>Does your agency’s server location have physical access control(s) (e.g., locking doors, badge readers, etc.)?</label>
+            </div>
+            <div class="large-1 columns">
+                <label>Yes</label>
+                <%= f.radio_button :access_control, "true" %>
+            </div>
+            <div class="large-1 columns">
+                <label>No</label>
+                <%= f.radio_button :access_control, "false" %>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="large-10 columns">
+                <label>Does your agency have a central Uninterrupted Power Supply (UPS) for its servers?</label>
+            </div>
+            <div class="large-1 columns">
+                <label>Yes</label>
+                <%= f.radio_button :ups, "true" %>
+            </div>
+            <div class="large-1 columns">
+                <label>No</label>
+                <%= f.radio_button :ups, "false" %>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="large-10 columns">
+                <label>Are your agency’s servers housed within an environmentally controlled space?</label>
+            </div>
+            <div class="large-1 columns">
+                <label>Yes</label>
+                <%= f.radio_button :envir_ctrl, "true" %>
+            </div>
+            <div class="large-1 columns">
+                <label>No</label>
+                <%= f.radio_button :envir_ctrl, "false" %>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="large-10 columns">
+                <label>Are your agency’s servers connected to a backup generator?</label>
+            </div>
+            <div class="large-1 columns">
+                <label>Yes</label>
+                <%= f.radio_button :generator, "true" %>
+            </div>
+            <div class="large-1 columns">
+                <label>No</label>
+                <%= f.radio_button :generator, "false" %>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="large-10 columns">
+                <label>Are your agency’s servers housed within a facility that has a fire suppression system?</label>
+            </div>
+            <div class="large-1 columns">
+                <label>Yes</label>
+                <%= f.radio_button :fire, "true" %>
+            </div>
+            <div class="large-1 columns">
+                <label>No</label>
+                <%= f.radio_button :fire, "false" %>
+            </div>
+        </div>
+        <hr>
         <%= f.input :data_server %>
         <%= f.input :data_san %>
         <%= f.input :total_capacity %>
