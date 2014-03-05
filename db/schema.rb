@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301214822) do
+ActiveRecord::Schema.define(version: 20140305203609) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -72,6 +72,18 @@ ActiveRecord::Schema.define(version: 20140301214822) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "fte1"
+    t.integer  "fte1_prcnt"
+    t.integer  "fte2"
+    t.integer  "fte2_prcnt"
+    t.integer  "fte3"
+    t.integer  "fte3_prcnt"
+    t.integer  "fte4"
+    t.integer  "fte4_prcnt"
+    t.integer  "fte5"
+    t.integer  "fte5_prcnt"
+    t.integer  "fte6"
+    t.integer  "fte6_prcnt"
   end
 
   add_index "surveys", ["user_id"], name: "index_surveys_on_user_id"

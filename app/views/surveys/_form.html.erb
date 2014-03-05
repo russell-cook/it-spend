@@ -20,6 +20,7 @@
             <div class="large-4 columns">
             </div>
         </div>
+        <hr>
         <div class="row">
             <div class="large-4 columns">
                 <label>Name of person to contact with questions:</label>
@@ -57,6 +58,108 @@
         <div class="row">
             <div class="large-12 columns">
         <%= f.text_area :type_servers %>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="large-12 columns">
+                <label>How much total storage capacity (in GB) does your agency have?</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-2 columns">
+                <%= f.number_field :total_capacity %>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="large-12 columns">
+                <label>As of February 1, 2014, what amount of that storage capacity (in GB) is utilized?</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-2 columns">
+                <%= f.number_field :used_capacity %>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="large-12 columns">
+                <label><p>Is your agency’s data stored on servers or on a Storage Area Network (SAN)? Please check all that apply:</p></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-2 columns">
+                <label>Data Server</label>
+                <%= f.check_box :data_server %>
+            </div>
+            <div class="large-3 columns">
+                <label>Storage Area Network (SAN)</label>
+                <%= f.check_box :data_san %>
+            </div>
+            <div class="large-7 columns">
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Server Information - Backup</legend>
+        <div class="row">
+            <div class="large-10 columns">
+                <label>Does your agency use a scheduled back-up mechanism for its data?</label>
+            </div>
+            <div class="large-1 columns">
+                <label>Yes</label>
+                <%= f.radio_button :backup, "true" %>
+            </div>
+            <div class="large-1 columns">
+                <label>No</label>
+                <%= f.radio_button :backup, "false" %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <label><p>If so, which method does your agency employ? Please check all that apply:</p></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-2 columns">
+                <label>Local Backup</label>
+                <%= f.check_box :local_backup %>
+            </div>
+            <div class="large-3 columns">
+                <label>Central Backup</label>
+                <%= f.check_box :central_backup %>
+            </div>
+            <div class="large-7 columns">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="large-12 columns">
+                <label><p>How often are your agency’s server(s)/data backed up?</p></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-1 columns">
+                <%= f.label :freq_backup_daily, "Daily" %>
+                <%= f.radio_button :freq_backup, "daily" %>
+            </div>
+            <div class="large-1 columns">
+                <%= f.label(:freq_backup_daily, "Weekly") %>
+                <%= f.radio_button(:freq_backup, "weekly") %>
+            </div>
+            <div class="large-1 columns">
+                <%= f.label(:freq_backup_daily, "Monthly") %>
+                <%= f.radio_button(:freq_backup, "monthly") %>
+            </div>
+            <div class="large-1 columns">
+                <%= f.label(:freq_backup_daily, "Other") %>
+                <%= f.radio_button(:freq_backup, "other") %>
+            </div>
+            <div class="large-8 columns">
+                <label>If "Other", please specify:</label>
+                <%= f.text_field :freq_backup_other %>
             </div>
         </div>
     </fieldset>
@@ -205,32 +308,18 @@
                 <%= f.radio_button :fire, "false" %>
             </div>
         </div>
-        <hr>
-        <%= f.input :data_server %>
-        <%= f.input :data_san %>
-        <%= f.input :total_capacity %>
-        <%= f.input :used_capacity %>
     </fieldset>
-    <%= f.input :backup %>
-    <%= f.input :local_backup %>
-    <%= f.input :central_backup %>
-    <%= f.label :freq_backup_daily, "Daily" %>
-    <%= f.radio_button :freq_backup, "daily" %>
-    <%= f.label(:freq_backup_daily, "Weekly") %>
-    <%= f.radio_button(:freq_backup, "weekly") %>
-    <%= f.label(:freq_backup_daily, "Monthly") %>
-    <%= f.radio_button(:freq_backup, "monthly") %>
-    <%= f.label(:freq_backup_daily, "Other") %>
-    <%= f.radio_button(:freq_backup, "other") %>
-    <%= f.input :freq_backup_other %>
-    <%= f.input :who_manages %>
-    <%= f.input :who_manages_other %>
-    <%= f.input :hard_maint %>
-    <%= f.input :hard_maint_amt %>
-    <%= f.input :soft_maint %>
-    <%= f.input :soft_maint_amt %>
-    <%= f.input :contractor_support %>
-    <%= f.input :contractor_support_amt %>
+    <fieldset>
+        <legend>Server Information - Maintenance</legend>
+        <%= f.input :who_manages %>
+        <%= f.input :who_manages_other %>
+        <%= f.input :hard_maint %>
+        <%= f.input :hard_maint_amt %>
+        <%= f.input :soft_maint %>
+        <%= f.input :soft_maint_amt %>
+        <%= f.input :contractor_support %>
+        <%= f.input :contractor_support_amt %>
+    </fieldset>
   </div>
 
   <div class="form-actions">
